@@ -36,6 +36,9 @@ public class Wsg extends HttpServlet {
 		Gson gson = new Gson();
 		
 		response
+			.addHeader("Content-Type", "Application/JSON");
+		
+		response
 			.getWriter()
 			.append(gson.toJson(this.productDAO.getProducts()));
 	}
@@ -44,7 +47,7 @@ public class Wsg extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 		BufferedReader reader = request.getReader();
 		Gson gson = new Gson();
 
