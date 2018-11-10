@@ -17,6 +17,8 @@ import com.google.gson.Gson;
 @WebServlet("/Wsg")
 public class Wsg extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private ProductDAO productDAO;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -24,17 +26,18 @@ public class Wsg extends HttpServlet {
     public Wsg() {
         super();
         // TODO Auto-generated constructor stub
+        this.productDAO = new ProductDAO();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		Gson gson = new Gson();
+		
 		response
 			.getWriter()
-			.append("Served at: ")
-			.append(request.getContextPath());
+			.append(gson.toJson(this.productDAO.getProducts()));
 	}
 
 	/**
@@ -45,9 +48,11 @@ public class Wsg extends HttpServlet {
 		BufferedReader reader = request.getReader();
 		Gson gson = new Gson();
 
-		Product newProduct = gson.fromJson(reader, Product.class);
+		Product product = gson.fromJson(reader, Product.class);
 		
-		response.getWriter().append(newProduct.toString());
+		this.productDAO.addProduct(product);
+		
+		response.getWriter().append("{\"ok\": true}");
 	}
 
 }

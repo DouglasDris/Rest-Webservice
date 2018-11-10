@@ -1,5 +1,7 @@
 package com.srccodes.example;
 
+import com.google.gson.Gson;
+
 /**
  * @author sap
  *
@@ -45,4 +47,5 @@ public class Product {
 	public void setCurrencyCode(String currencyCode) {
 		this.currencyCode = currencyCode;
 	}
+
 }
