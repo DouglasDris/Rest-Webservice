@@ -18,6 +18,8 @@ import com.google.gson.Gson;
 public class ProductsAPI extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	private static String PATH_NAME = "/WsgServlet/v1/Products/";
+	
 	private ProductService productService;
        
     /**
@@ -55,10 +57,10 @@ public class ProductsAPI extends HttpServlet {
 	
 	private String getProductFromRequestPath(String requestPath) {
 		
-		if (requestPath.length() < "/WsgServlet/v1/Products/".length()) {
+		if (requestPath.length() < PATH_NAME.length()) {
 			return null;
 		}else {
-			return requestPath.substring("/WsgServlet/v1/Products/".length(), requestPath.length());
+			return requestPath.substring(PATH_NAME.length(), requestPath.length());
 		}
 		
 	}
