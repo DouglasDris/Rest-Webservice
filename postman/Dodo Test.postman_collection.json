@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "de4e8ee3-3c5a-40aa-93ea-5b8b07328a45",
+		"name": "Dodo Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": \"123\",\n\t\"name\": \"Colar\",\n\t\"value\": 10.0,\n\t\"currencyCode\": \"BRL\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/WsgServlet/v1/Products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"WsgServlet",
+						"v1",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 123,\n\t\"name\": \"Colar\",\n\t\"value\": 10.0,\n\t\"currencyCode\": \"BRL\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/WsgServlet/v1/Products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"WsgServlet",
+						"v1",
+						"Products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Product by ID",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 123,\n\t\"name\": \"Colar\",\n\t\"value\": 10.0,\n\t\"currencyCode\": \"BRL\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/WsgServlet/v1/Products/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"WsgServlet",
+						"v1",
+						"Products",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Product by ID",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"id\": 123,\n\t\"name\": \"Colar\",\n\t\"value\": 10.0,\n\t\"currencyCode\": \"BRL\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/WsgServlet/v1/Products/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"WsgServlet",
+						"v1",
+						"Products",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product by ID",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Neck\",\n\t\"value\": 12.0,\n\t\"currencyCode\": \"USD\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/WsgServlet/v1/Products/123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"WsgServlet",
+						"v1",
+						"Products",
+						"123"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
