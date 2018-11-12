@@ -1,21 +1,19 @@
 package com.srccodes.example;
 
-import com.google.gson.Gson;
-
 /**
  * @author sap
  *
  */
 public class Product {
 	
-	private long id;
+	private String id;
 	private String name;
 	private double value;
 	private String currencyCode;
 	
 	public Product() {}
 	
-	public Product(long id, String name, double value, String currencyCode) {
+	public Product(String id, String name, double value, String currencyCode) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -23,10 +21,10 @@ public class Product {
 		this.currencyCode = currencyCode;
 	}
 	
-	public long getId() {
+	public String getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public String getName() {
