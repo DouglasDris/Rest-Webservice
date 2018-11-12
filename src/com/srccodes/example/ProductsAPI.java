@@ -41,13 +41,14 @@ public class ProductsAPI extends HttpServlet {
 		
 		String productId = this.getProductFromRequestPath(request.getRequestURI());
 		
+		//Get Product by ID
 		if (productId != null) {
 			Product retrievedProduct = this.productService.getProductById(productId);
 			
 			response
 				.getWriter()
 				.append(gson.toJson(retrievedProduct));
-		}else {
+		}else { //Get Product List
 			response
 				.getWriter()
 				.append(gson.toJson(this.productService.getProducts()));
@@ -70,10 +71,8 @@ public class ProductsAPI extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		BufferedReader reader = request.getReader();
-		Gson gson = new Gson();
 
-		Product product = gson.fromJson(reader, Product.class);
+		Product product = this.getProductFromRequestBody(request);
 		
 		this.productService.addProduct(product);
 		
@@ -81,14 +80,18 @@ public class ProductsAPI extends HttpServlet {
 	}
 	
 	
+	private Product getProductFromRequestBody(HttpServletRequest request) throws IOException {
+		BufferedReader reader = request.getReader();
+		Gson gson = new Gson();
+
+		return gson.fromJson(reader, Product.class);
+	}
+	
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		String productId = this.getProductFromRequestPath(request.getRequestURI());
 		
-		BufferedReader reader = request.getReader();
-		Gson gson = new Gson();
-
-		Product productPayload = gson.fromJson(reader, Product.class);
+		Product productPayload = this.getProductFromRequestBody(request);
 		
 		this.productService.updateProductById(productId, productPayload);
 	}
